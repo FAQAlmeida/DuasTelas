@@ -16,15 +16,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtValor = (EditText) findViewById(R.id.txtValor);
-        btnEnviar = (Button) findViewById(R.id.btnEnviar);
+        txtValor    =   (EditText)    findViewById(R.id.txtValor);
+        btnEnviar   =   (Button)      findViewById(R.id.btnEnviar);
 
         btnEnviar.setOnClickListener(cliquei);
     }
     private View.OnClickListener cliquei = new View.OnClickListener(){
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, Tela2.class);
+            Intent intent   =   new Intent(MainActivity.this, Tela2.class);
+            String texto    =   txtValor.getText().toString();
+            intent.putExtra("Texto", texto);
             startActivity(intent);
         }
     };
